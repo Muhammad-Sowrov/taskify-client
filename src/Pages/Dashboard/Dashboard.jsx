@@ -8,7 +8,7 @@ const Dashboard = () => {
         <Profile></Profile>
         
       </div>
-      <div className="w-3/4 pt-20 px-3 md:px-10">
+      <div className="min-h-screen w-3/4 pt-20 px-3 md:px-10">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
         consequatur eos error delectus at commodi optio nobis voluptates cum.
         Voluptatum, laudantium. Fugiat dolorem, tempora dolor illum unde

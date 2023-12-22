@@ -1,12 +1,16 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import axios from "axios";
+import Swal from "sweetalert2";
 
-
+const image_hosting_key = import.meta.env.VITE_IMAGE;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 const Register = () => {
 
-const {createUser} = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { createUser, updateUserProfile } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -14,13 +18,49 @@ const {createUser} = useContext(AuthContext);
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data.email, data.password);
-    createUser(data.email, data.password)
-    .then(res => {
-        console.log(res);
-    })
-
+  const onSubmit = async (data) => {
+    const imageFile = { image: data.image[0] };
+    const res = await axios.post(image_hosting_api, imageFile, {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    });
+    if (res.data.success) {
+      createUser(data.email, data.password).then((result) => {
+        console.log(result);
+        updateUserProfile(data.name, data.photoUrl).then(() => {
+          const userInfo = {
+            name: data.name,
+            email: data.email,
+            image: res.data.data.display_url,
+          };
+          axios.post("http://localhost:5000/users", userInfo).then((res) => {
+            console.log(res);
+            if (res.data.insertedId) {
+              reset();
+              Swal.fire({
+                title: "Account created successful",
+                showClass: {
+                  popup: `
+                    animate__animated
+                    animate__fadeInUp
+                    animate__faster
+                  `
+                },
+                hideClass: {
+                  popup: `
+                    animate__animated
+                    animate__fadeOutDown
+                    animate__faster
+                  `
+                }
+              });
+              navigate("/login");
+            }
+          });
+        });
+      });
+    }
   };
   return (
     <div>
@@ -45,7 +85,7 @@ const {createUser} = useContext(AuthContext);
                 <span className="text-red-700">This field is required</span>
               )}
             </div>
-            {/* <div className="mb-4">
+            <div className="mb-4">
               <label className="block text-gray-600 text-sm font-semibold">
                 Upload Image
               </label>
@@ -58,7 +98,7 @@ const {createUser} = useContext(AuthContext);
               {errors.image && (
                 <span className="text-red-700">Please upload an image</span>
               )}
-            </div> */}
+            </div>
             <div className="mb-4">
               <label className="block text-gray-600 text-sm font-semibold">
                 Email

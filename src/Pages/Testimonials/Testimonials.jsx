@@ -23,7 +23,7 @@ const Testimonials = () => {
       <h1 className="text-3xl font-bold text-center">Testimonials</h1>
       <>
         <Swiper
-          slidesPerView={3}
+          slidesPerView={2}
           spaceBetween={30}
           freeMode={true}
           pagination={{
@@ -36,13 +36,11 @@ const Testimonials = () => {
             <SwiperSlide key={review._id}>
               <div>
                 {/* <h1></h1> */}
-                <div className="car h-56 md:h-96 lg:h-72 mt-5 gap-2 bg-indigo-100 p- rounded-2xl shadow-xl">
+                <div className="car h-64 sm:w-full md:h-64 lg:h-64 mt-5 gap-2 bg-indigo-100 p- rounded-2xl shadow-xl">
                   <div className="card-body items-center text-center">
-                    <h3>{review.feedback}</h3>
-                    <h2 className="card-title font-bold">{review.fullName}</h2>
-                    <h2 className="font-bol">{review.jobTitle}</h2>
-                    
-                    
+                    <h3 className="text-sm md:text-xl">{review.feedback}</h3>
+                    <h2 className=" card-title font-bold">{review.fullName}</h2>
+                    <h2 className=" font-bol">{review.jobTitle}</h2>
                   </div>
                 </div>
               </div>
