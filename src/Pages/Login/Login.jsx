@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -24,6 +25,23 @@ const Login = () => {
         console.log(res);
         navigate(location.state? location.state : "/")
         reset()
+        Swal.fire({
+          title: "Login successful",
+          showClass: {
+            popup: `
+              animate__animated
+              animate__fadeInUp
+              animate__faster
+            `
+          },
+          hideClass: {
+            popup: `
+              animate__animated
+              animate__fadeOutDown
+              animate__faster
+            `
+          }
+        });
     })
 
   };
