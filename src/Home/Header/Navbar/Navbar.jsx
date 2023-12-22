@@ -1,4 +1,4 @@
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { RiMenu4Fill } from "react-icons/ri";
 import { FaTimes } from "react-icons/fa";
 
@@ -14,7 +14,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="shadow-md w-full fixed z-30top-0 left-0">
+    <div className="shadow-md w-full fixed z-30 top-0 left-0">
       <div className="">
         <div className="md:flex items-center justify-between bg-gray-900 text-white py-4 px-4">
           <Link to="/">
@@ -33,21 +33,10 @@ const Navbar = () => {
               open ? "top-14" : "top-[-490px]"
             }`}
           >
-            {/* className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-red-500 font-bold" : ""
-          } */}
-            {/* hover:text-gray-600 duration-500 md:my-0 my-5 */}
-            <Link
-              to="/"
-              className={({ isActive, isPending }) =>
-                isPending
-                  ? "pending"
-                  : isActive
-                  ? "font-bold border-0 border-b-2 border-green-600"
-                  : "hover:text-gray-600 duration-500 md:my-0 my-5 "
-              }
-            >
-              <li>Home</li>
+            <Link to="/">
+              <li className="hover:text-gray-600 duration-500 md:my-0 my-5">
+                Home
+              </li>
             </Link>
             {user ? (
               <Link onClick={handleOut}>

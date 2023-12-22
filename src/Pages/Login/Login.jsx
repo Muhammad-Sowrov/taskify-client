@@ -31,7 +31,7 @@ const Login = () => {
       console.log(result.user);
     })
     .then(error => {
-      console.log(error.message);
+      console.log(error);
     })
   }
 
