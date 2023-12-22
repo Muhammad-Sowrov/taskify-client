@@ -5,10 +5,10 @@ const Banner = () => {
     <div className="min-h-screen items-center flex justify-center pt-20">
       <section className="flex justify-center items-center gap-10 p-2 md:px-10">
         <div className="w-1/2">
-          <h1 className="text-4xl font-bold">
+          <h1 className="text-xl md:text-4xl font-bold">
             Organize Your Life, Boost Your Productivity!
           </h1>
-          <h3 className="text-2xl mt-5">
+          <h3 className="text-base md:text-2xl mt-5">
             Stay on Top of Tasks with Our
             <br />
             Intuitive To-Do App
