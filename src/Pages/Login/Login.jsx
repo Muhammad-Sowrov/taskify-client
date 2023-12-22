@@ -1,12 +1,14 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const {signIn, signInWithGoogle} = useContext(AuthContext)
+  const {signIn, signInWithGoogle} = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
  
   const {
     register,
@@ -20,6 +22,7 @@ const Login = () => {
     signIn(data.email, data.password)
     .then(res=> {
         console.log(res);
+        navigate(location.state? location.state : "/")
         reset()
     })
 
@@ -29,6 +32,7 @@ const Login = () => {
     signInWithGoogle()
     .then(result=> {
       console.log(result.user);
+
     })
     .then(error => {
       console.log(error);

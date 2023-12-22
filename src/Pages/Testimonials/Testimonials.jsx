@@ -16,7 +16,7 @@ const Testimonials = () => {
     });
   }, []);
 
-  console.log(reviews);
+  // console.log(reviews);
 
   return (
     <div className="my-10 px-10">
