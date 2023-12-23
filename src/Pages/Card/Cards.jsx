@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 const Cards = () => {
   const [cardData, setCardData] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/cards").then((res) => {
+    axios.get("https://taskify-server-xi.vercel.app/cards").then((res) => {
       setCardData(res.data);
     });
   }, []);
-  console.log(cardData);
+  // console.log(cardData);
   return (
     <div className="my-10 px-10">
       <h1 className="text-3xl font-bold text-center">Faces of Productivity</h1>

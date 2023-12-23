@@ -10,7 +10,7 @@ const Testimonials = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/testimonials").then((res) => {
+    axios.get("https://taskify-server-xi.vercel.app/testimonials").then((res) => {
       // console.log(res.data);
       setReviews(res.data);
     });
