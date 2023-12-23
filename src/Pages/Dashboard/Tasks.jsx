@@ -3,10 +3,11 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { reload } from "firebase/auth";
+import useTask from "../../hooks/useTask";
 
 const Tasks = () => {
   const { user } = useContext(AuthContext);
+  const [,refetch] = useTask()
 
   const {
     register,
@@ -34,8 +35,8 @@ const Tasks = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        reload;
         reset();
+        refetch()
       }
     });
   };

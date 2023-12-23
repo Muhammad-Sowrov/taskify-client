@@ -11,8 +11,12 @@ const ToDo = () => {
             <div className="border border-black w-full px-3 py-1 rounded-box mb-3">
               <div className="flex justify-center items-center">
                 <h1 className="text-start w-2/3">{doList.tasksName}</h1>
-                <FaEdit className="mr-2"></FaEdit>
-                <FaTrash></FaTrash>
+                <button>
+                  <FaEdit className="mr-2"></FaEdit>
+                </button>
+                <button>
+                  <FaTrash></FaTrash>
+                </button>
               </div>
             </div>
           </div>
