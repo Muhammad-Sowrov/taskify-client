@@ -11,6 +11,7 @@ const Navbar = () => {
 
   const handleOut = () => {
     logOut().then().then();
+    
   };
 
   return (

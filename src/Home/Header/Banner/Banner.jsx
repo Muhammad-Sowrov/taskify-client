@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init()
 
 const Banner = () => {
   return (
     <div className="min-h-screen items-center flex justify-center pt-20">
       <section className="flex justify-center items-center gap-10 p-2 md:px-10">
-        <div className="w-1/2">
+        <div
+         data-aos="fade-down-right" 
+        className="w-1/2">
           <h1 className="text-xl md:text-4xl font-bold">
             Organize Your Life, Boost Your Productivity!
           </h1>
@@ -22,7 +27,9 @@ const Banner = () => {
             </Link>{" "}
           </h3>
         </div>
-        <div className="w-1/2">
+        <div
+        data-aos="fade-down-left" 
+        className="w-1/2">
           <img
             src="https://i.ibb.co/7yFVkss/42.jpg"
             alt=""
