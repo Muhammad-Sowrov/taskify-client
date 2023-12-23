@@ -8,7 +8,7 @@ const Profile = () => {
   // console.log(user);
   const [userDetails, setUserDetails] = useState([]);
   useEffect(()=> {
-    axios.get(`https://taskify-server-xi.vercel.app/users?email=${user.email}`)
+    axios.get(`https://taskify-server-two.vercel.app/users?email=${user.email}`)
     .then(res=> {
       // console.log(res.data);
       setUserDetails(res.data);

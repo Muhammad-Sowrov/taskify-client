@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 const Cards = () => {
   const [cardData, setCardData] = useState([]);
   useEffect(() => {
-    axios.get("https://taskify-server-xi.vercel.app/cards").then((res) => {
+    axios.get("https://taskify-server-two.vercel.app/cards").then((res) => {
       setCardData(res.data);
     });
   }, []);

@@ -24,7 +24,7 @@ const Tasks = () => {
       status: "toDo",
     };
     console.log(tasks);
-    axios.post("https://taskify-server-xi.vercel.app/tasks", tasks).then((res) => {
+    axios.post("https://taskify-server-two.vercel.app/tasks", tasks).then((res) => {
       console.log(res);
       if (res.data.insertedId) {
         Swal.fire({

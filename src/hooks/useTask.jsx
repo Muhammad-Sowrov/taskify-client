@@ -8,7 +8,7 @@ const useTask = () => {
   const { data: tasks = [], refetch } = useQuery({
     queryKey: ["tasks", user?.email],
     queryFn: async () => {
-      const res = await axios.get(`https://taskify-server-xi.vercel.app/tasks?email=${user.email}`); 
+      const res = await axios.get(`https://taskify-server-two.vercel.app/tasks?email=${user.email}`); 
       return res.data;
     },
   });

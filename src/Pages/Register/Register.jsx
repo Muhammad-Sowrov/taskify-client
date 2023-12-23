@@ -34,7 +34,7 @@ const Register = () => {
             email: data.email,
             image: res.data.data.display_url,
           };
-          axios.post("https://taskify-server-xi.vercel.app/users", userInfo).then((res) => {
+          axios.post("https://taskify-server-two.vercel.app/users", userInfo).then((res) => {
             console.log(res);
             if (res.data.insertedId) {
               reset();
